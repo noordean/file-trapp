@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.1'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
+gem 'aws-sdk-s3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

@@ -1,27 +1,20 @@
 <%= form_with(model: upload, local: true) do |form| %>
-  <% if upload.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
-
-      <ul>
-      <% upload.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <button class="close" data-dismiss="alert">×</button>
+      <%= value %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :files %>
-    <%= form.file_field :files, multiple: true, direct_upload: true %>
+  <div class="file-upload">
+      <label for="file-input">
+          <img src="<%= asset_path('upload.png') %>" />
+          <div id="selected-files"></div>
+      </label>
+      <%= form.file_field :files, id: "file-input", multiple: true, direct_upload: true, required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Upload", class: "btn button" %>
   </div>
 <% end %>

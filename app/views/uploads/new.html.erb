@@ -1,5 +1,6 @@
-<h1>New Upload</h1>
+<div class="new-upload">
+  <h5>NEW UPLOAD</h5>
 
-<%= render 'form', upload: @upload %>
-
-<%= link_to 'Back', uploads_path %>
+  <%= render 'form', upload: @upload %>
+  <%= link_to "View Uploads", uploads_path, class: "btn-link" %>
+</div>

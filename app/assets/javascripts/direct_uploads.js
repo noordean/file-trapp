@@ -34,3 +34,14 @@ addEventListener("direct-upload:end", event => {
   const element = document.getElementById(`direct-upload-${id}`)
   element.classList.add("direct-upload--complete")
 })
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("file-input").onchange = (event) => {
+    const uploadFiles = Object.values(event.target.files);
+    let fileNames = uploadFiles.map((file) => {
+      return file.name
+    });
+    fileNames = uploadFiles.length > 3 ? `${fileNames.slice(0, 3).join(", ")}...` : fileNames.join(", ");
+    document.getElementById("selected-files").innerHTML = fileNames;
+  };
+});

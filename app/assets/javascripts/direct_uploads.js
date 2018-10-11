@@ -35,7 +35,7 @@ addEventListener("direct-upload:end", event => {
   element.classList.add("direct-upload--complete")
 })
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("turbolinks:load", (event) => {
   document.getElementById("file-input").onchange = (event) => {
     const uploadFiles = Object.values(event.target.files);
     let fileNames = uploadFiles.map((file) => {
